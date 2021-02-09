@@ -1,7 +1,9 @@
 const puppeteer = require("puppeteer");
 (async () => {
-
-    let appUrl = 'https://www.apptrace.com/app/363590051';
+    const readline = require('readline-sync');
+    var userinput = 0;
+    userinput = readline.question(`Enter the url\n`);
+    let appUrl = userinput;
     //launch the browser
     let browser = await puppeteer.launch({headless: true});
     //open up a new page
