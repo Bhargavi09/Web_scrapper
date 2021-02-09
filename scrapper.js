@@ -11,20 +11,20 @@ const puppeteer = require("puppeteer");
     //evaluates the current page
     let info = await page.evaluate(()=>{
         let age = document.querySelector('div[id="roundup_infobox_age"]>p[class="data"]').innerText;
-        let Overall_Ratings = document.querySelector('div[id="roundup_infobox_rating"]>p[class="data"]').innerText;
-        let Global_Rank = document.querySelector('div[id="roundup_infobox_ranking"]>p[class="data"]').innerText;
-        let Description = document.querySelector('div[itemprop="description"]').innerText;
-        let image_urls = new Array;
+        let overallRatings = document.querySelector('div[id="roundup_infobox_rating"]>p[class="data"]').innerText;
+        let globalRank = document.querySelector('div[id="roundup_infobox_ranking"]>p[class="data"]').innerText;
+        let description = document.querySelector('div[itemprop="description"]').innerText;
+        let imageUrls = [];
         let images = document.getElementsByTagName("img");
         for(q = 0; q < images.length; q++){
-            image_urls.push(images[q].src);
+            imageUrls.push(images[q].src);
         }
     return{
         age,
-        Overall_Ratings,
-        Global_Rank,
-        Description,
-        image_urls
+        overallRatings,
+        globalRank,
+        description,
+        imageUrls
     }
 
     });
